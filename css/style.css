@@ -37,28 +37,28 @@ html {
 }
 
 /* Базовый стиль окошек (бабблов) */
+/* Базовый стиль окошек (бабблов) */
 .box {
-	background: #fff;
-	color: #000;
-	/* Огромные отступы для солидности */
-	padding: 50px 80px;
-	border-radius: 30px;
-	/* Шрифт теперь реально крупный (примерно 48-55px) */
-	font-size: 3rem;
-	font-weight: 700;
-	line-height: 1.2;
-	/* Увеличиваем ширину, чтобы текст не превращался в узкий столбик */
-	max-width: 1100px;
-	/* Мощная двойная тень для глубины */
-	box-shadow:
-		0 20px 50px rgba(0, 0, 0, 0.8),
-		0 0 15px rgba(255, 255, 255, 0.2);
-	border: 6px solid #000; /* Жирный контур, как в комиксах */
+    background: #fff;
+    color: #000;
+    /* Уменьшаем отступы до адекватных */
+    padding: 30px 40px; 
+    border-radius: 20px;
+    /* Уменьшаем шрифт: 1.5rem — это примерно 24px, золотая середина */
+    font-size: 1.6rem; 
+    font-weight: 600;
+    line-height: 1.3;
+    /* Ограничиваем ширину более гибко */
+    max-width: 85%; 
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.6),
+        0 0 10px rgba(255, 255, 255, 0.1);
+    border: 4px solid #000; /* Контур чуть тоньше, чтобы не «давил» */
 
-	opacity: 0;
-	transform: translateY(40px);
-	transition: all 1s cubic-bezier(0.22, 1, 0.36, 1); /* Более плавная анимация */
-	text-align: center;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    text-align: center;
 }
 
 /* Анимация появления контента (работает через твой script.js) */
@@ -84,17 +84,17 @@ html {
 
 /* Пергаментный свиток (как мы делали раньше) */
 .parchment-scroll {
-	background-color: #f7e7c9;
-	background-image: radial-gradient(
-		circle,
-		rgba(255, 255, 255, 0.3) 0%,
-		rgba(0, 0, 0, 0) 100%
-	);
-	border: 8px solid #5d2e0a; /* Очень толстая коричневая рамка */
-	color: #3e2712;
-	/* Шрифт еще больше, так как это вступление */
-	font-size: 3.5rem;
-	text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+    background-color: #f7e7c9;
+    background-image: radial-gradient(
+        circle,
+        rgba(255, 255, 255, 0.3) 0%,
+        rgba(0, 0, 0, 0) 100%
+    );
+    border: 6px solid #5d2e0a;
+    color: #3e2712;
+    /* Уменьшаем и здесь, чтобы не вылетало за края */
+    font-size: 2rem; 
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
 }
 
 /* Стиль баббла Миры (эфирный, магический) */
