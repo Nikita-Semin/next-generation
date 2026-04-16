@@ -1,0 +1,231 @@
+/* Переменные для 1 сезона */
+:root {
+	--parliament-blue: #1e3a8a;
+	--source-energy: #8b5cf6;
+}
+
+/* =========================================
+   БАЗОВЫЕ СТИЛИ (ФУНДАМЕНТ КОМИКСА)
+========================================= */
+
+body,
+html {
+	margin: 0;
+	padding: 0;
+	background-color: #0a0a0c;
+	font-family: 'Segoe UI', Roboto, sans-serif;
+	overflow-x: hidden;
+}
+
+/* Самое главное: панель должна занимать весь экран! */
+.panel {
+	position: relative;
+	width: 100vw;
+	height: 100vh;
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	overflow: hidden;
+}
+
+/* Настройки для текстовых блоков */
+.content {
+	position: absolute;
+	z-index: 10;
+	padding: 20px;
+	box-sizing: border-box;
+}
+
+/* Базовый стиль окошек (бабблов) */
+.box {
+	background: #fff;
+	color: #000;
+	/* Огромные отступы для солидности */
+	padding: 50px 80px;
+	border-radius: 30px;
+	/* Шрифт теперь реально крупный (примерно 48-55px) */
+	font-size: 3rem;
+	font-weight: 700;
+	line-height: 1.2;
+	/* Увеличиваем ширину, чтобы текст не превращался в узкий столбик */
+	max-width: 1100px;
+	/* Мощная двойная тень для глубины */
+	box-shadow:
+		0 20px 50px rgba(0, 0, 0, 0.8),
+		0 0 15px rgba(255, 255, 255, 0.2);
+	border: 6px solid #000; /* Жирный контур, как в комиксах */
+
+	opacity: 0;
+	transform: translateY(40px);
+	transition: all 1s cubic-bezier(0.22, 1, 0.36, 1); /* Более плавная анимация */
+	text-align: center;
+}
+
+/* Анимация появления контента (работает через твой script.js) */
+.panel.active .box {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+/* Позиционирование контента на десктопе */
+.center {
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.top-left {
+	top: 15%;
+	left: 10%;
+}
+.bottom-right {
+	bottom: 15%;
+	right: 10%;
+}
+
+/* Пергаментный свиток (как мы делали раньше) */
+.parchment-scroll {
+	background-color: #f7e7c9;
+	background-image: radial-gradient(
+		circle,
+		rgba(255, 255, 255, 0.3) 0%,
+		rgba(0, 0, 0, 0) 100%
+	);
+	border: 8px solid #5d2e0a; /* Очень толстая коричневая рамка */
+	color: #3e2712;
+	/* Шрифт еще больше, так как это вступление */
+	font-size: 3.5rem;
+	text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+/* Стиль баббла Миры (эфирный, магический) */
+.panel.active .mira-speech {
+	background: rgba(255, 255, 255, 0.9);
+	border: 2px solid var(--source-energy); /* Тот фиолетовый из переменных */
+	color: #2d1b4e;
+	box-shadow: 0 0 15px rgba(139, 92, 246, 0.4);
+}
+
+/* СТИЛИ ПАНЕЛЕЙ 1 СЕЗОНА */
+.s1-prologue {
+	background-image: url('../assets/s1/prologue_desktop.png');
+}
+.s1-ch1 {
+	background-image: url('../assets/s1/ch1_desktop.png');
+}
+.s1-ch2 {
+	background-image: url('../assets/s1/ch2_desktop.png');
+}
+
+.s1-ch3 {
+	background-image: url('../assets/s1/ch3_parliament_desktop.png');
+}
+.s1-ch4 {
+	background-image: url('../assets/s1/ch4_mira_desktop.png');
+}
+.s1-ch5 {
+	background-image: url('../assets/s1/ch5_varl_desktop.png');
+}
+
+.s1-ch6 {
+	background-image: url('../assets/s1/ch6_desktop.png');
+}
+.s1-ch7 {
+	background-image: url('../assets/s1/ch7_desktop.png');
+}
+.s1-ch8 {
+	background-image: url('../assets/s1/ch8_desktop.png');
+}
+.s1-ch9 {
+	background-image: url('../assets/s1/ch9_desktop.png');
+}
+.s1-ch10 {
+	background-image: url('../assets/s1/ch10_desktop.png');
+}
+.s1-ch11 {
+	background-image: url('../assets/s1/ch11_desktop.png');
+}
+.s1-epilogue {
+	background-image: url('../assets/s1/epilogue_desktop.png');
+}
+
+/* =========================================
+   УНИКАЛЬНЫЕ СТИЛИ ПЕРСОНАЖЕЙ
+========================================= */
+
+/* Речь Арена — классический баббл с синим акцентом */
+.aren-speech {
+	border-left: 8px solid #3b82f6;
+}
+
+/* Речь Миры — мягкое фиолетовое свечение */
+.mira-speech {
+	border: 2px solid #a78bfa;
+	box-shadow: 0 0 15px rgba(167, 139, 250, 0.4);
+	background: #fff;
+}
+
+/* Речь Варла — темный баббл с красным акцентом */
+.varl-speech {
+	background: #1a1a1a;
+	color: #fff;
+	border-left: 8px solid #ef4444;
+}
+
+/* === СУПЕР ВАЖНЫЙ ТРЮК (ПРОФИ УРОВЕНЬ) === */
+@media (max-width: 768px) {
+	/* Прячем весь HTML-текст на мобилках */
+	.panel .content,
+	.panel .box,
+	.panel .speech,
+	.panel .narration {
+		display: none !important;
+	}
+
+	/* Подключаем мобильные картинки с ВРИСОВАННЫМ текстом */
+	.s1-prologue {
+		background-image: url('../assets/s1_mobile/prologue.png') !important;
+	}
+	.s1-ch1 {
+		background-image: url('../assets/s1_mobile/ch1.png') !important;
+	}
+	.s1-ch2 {
+		background-image: url('../assets/s1_mobile/ch2.png') !important;
+	}
+
+	.s1-ch3 {
+		background-image: url('../assets/s1_mobile/ch3.png') !important;
+	}
+	.s1-ch4 {
+		background-image: url('../assets/s1_mobile/ch4.png') !important;
+	}
+	.s1-ch5 {
+		background-image: url('../assets/s1_mobile/ch5.png') !important;
+	}
+
+	.s1-ch6 {
+		background-image: url('../assets/s1_mobile/ch6.png') !important;
+	}
+	.s1-ch7 {
+		background-image: url('../assets/s1_mobile/ch7.png') !important;
+	}
+	.s1-ch8 {
+		background-image: url('../assets/s1_mobile/ch8.png') !important;
+	}
+	.s1-ch9 {
+		background-image: url('../assets/s1_mobile/ch9.png') !important;
+	}
+	.s1-ch10 {
+		background-image: url('../assets/s1_mobile/ch10.png') !important;
+	}
+	.s1-ch11 {
+		background-image: url('../assets/s1_mobile/ch11.png') !important;
+	}
+	.s1-epilogue {
+		background-image: url('../assets/s1_mobile/epilogue.png') !important;
+	}
+
+	.panel {
+		background-size: cover !important;
+		background-position: center center !important;
+	}
+}
